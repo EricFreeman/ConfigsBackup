@@ -1,0 +1,5 @@
+#! /usr/bin/env bash
+
+touch bake.log
+~/Trace32.exe bake.log && rm bake.log &
+bundle exec rake clobber default test:xunit $1 2>&1 | cut -c-1000 > bake.log && echo 'Tasks finished successfully' >> bake.log & 

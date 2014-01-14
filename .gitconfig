@@ -1,0 +1,56 @@
+[user]
+  name = Eric Freeman
+  email = eric.freeman@extendhealth.com
+[core]
+  autocrlf = false
+[color]
+  ui = auto
+[alias]
+  checkin = tfs ct --build-default-comment
+  fmerge = merge --ff-only
+  tfsclone = tfs clone https://tfs2010.extendhealth.com:8143/tfs/Main
+  tfsquickclone = tfs quick-clone https://tfs2010.extendhealth.com:8143/tfs/Main
+  st = status -s
+  ci = commit
+  cia = commit --amend -C HEAD
+  ciara = cia -a --reset-author
+  co = checkout
+  df = diff
+  ds = diff --stat
+  di = diff --cached
+  dft = difftool
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative 
+  pr = remote prune origin
+  rv = remote -v
+  ro = remote show origin
+  fh = log -p --full-diff
+  ba = branch -a
+  cob = checkout -b
+  new = log master..
+  rbc = rebase --continue
+  bm = branch --merged
+  stash-revert = "!git stash show -p | git apply -R"
+  stashki = stash save --keep-index
+  undo = reset HEAD^
+	ctags = !.git/hooks/ctags
+[push]
+  default = current
+[gui]
+	recentrepo = C:/home/work/main
+	recentrepo = C:/home/work/Website-Main
+	recentrepo = C:/home/new/admin-suite/main
+[branch]
+	autosetupmerge = true
+[difftool "p4merge"]
+  cmd = p4merge \"$LOCAL\" \"$REMOTE\"
+[merge]
+  tool = p4merge
+[mergetool]
+  prompt = false
+  keepTemporaries = false
+  keepBackup = false
+[mergetool "p4merge"]
+  cmd = p4merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+  trustExitCode = false
+[init]
+	templatedir = ~/.git_template
